@@ -11,6 +11,7 @@ class Header extends Component {
         <li>
           <div className="line">Linje</div>
           <div className="destination">Riktning</div>
+          <div className="track">Läge</div>
           <div className="departs">Avgår om</div>
           <div className="next-departure">Nästa tur</div>
         </li>
