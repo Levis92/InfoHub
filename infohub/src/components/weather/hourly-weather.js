@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import '../../App.css';
-import HourlyWeatherItem from './hourly-weather-item';
-
+import React, { Component } from "react";
+import "../../App.css";
+import HourlyWeatherItem from "./hourly-weather-item";
 
 class HourlyWeather extends Component {
-
   addItems() {
-    if (this.props.data) {
-      let data = []
-      for (var i = 0; i <= 10 && i < this.props.data.length ; i++) {
-          data[i] = this.props.data[i];
+    const { data } = this.props;
+    if (data) {
+      let dataList = [];
+      for (var i = 0; i <= 10 && i < data.length; i++) {
+        dataList[i] = data[i];
       }
-      return data.map( (e, i) => <HourlyWeatherItem key={i} data={e} /> );
+      return dataList.map((e, i) => <HourlyWeatherItem key={i} data={e} />);
     }
   }
 

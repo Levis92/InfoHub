@@ -21,7 +21,7 @@ div[data-reactroot] {
     padding-left: 0;
     margin: 0; }
   .vasttrafik .vasttrafik-header, .vasttrafik .widget-list-item {
-    padding: 0.5em 0.4em; }
+    padding: 0.4em 0.4em; }
     .vasttrafik .vasttrafik-header .line, .vasttrafik .vasttrafik-header .destination, .vasttrafik .vasttrafik-header .track, .vasttrafik .vasttrafik-header .departs, .vasttrafik .vasttrafik-header .next-departure, .vasttrafik .widget-list-item .line, .vasttrafik .widget-list-item .destination, .vasttrafik .widget-list-item .track, .vasttrafik .widget-list-item .departs, .vasttrafik .widget-list-item .next-departure {
       display: flex;
       align-items: center; }
