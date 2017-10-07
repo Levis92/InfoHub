@@ -8,7 +8,7 @@ from .api_keys import API
 
 def get_vasttrafik_json(id):
     authKey = get_access_token()
-    date = '20' + str(datetime.datetime.now().strftime("%y-%m-%d"))
+    date = str(datetime.datetime.now().strftime("%Y-%m-%d"))
     time = str(datetime.datetime.now().strftime("%H:%M"))
     host = 'https://api.vasttrafik.se'
     baseurl = '/bin/rest.exe/v2'
@@ -21,7 +21,7 @@ def get_vasttrafik_json(id):
         'time': time,
         'format': 'json',
     }
-    requestURL = host + baseurl + '/departureBoard'
+    requestURL = f"{host}{baseurl}/departureBoard"
     r = requests.get(requestURL, params=request, headers=headers)
     r = r.json()
     return modify_json(r)
