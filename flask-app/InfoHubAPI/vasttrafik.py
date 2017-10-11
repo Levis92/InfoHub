@@ -4,7 +4,6 @@ import requests
 import base64
 from operator import itemgetter
 from .api_keys import API
-from pprint import pprint
 
 
 def get_vasttrafik_json(id):
