@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import json
 import requests
 import base64
@@ -8,8 +8,8 @@ from .api_keys import API
 
 def get_vasttrafik_json(id):
     authKey = get_access_token()
-    date = str(datetime.datetime.now().strftime("%Y-%m-%d"))
-    time = str(datetime.datetime.now().strftime("%H:%M"))
+    date = datetime.now().strftime("%Y-%m-%d")
+    time = datetime.now().strftime("%H:%M")
     host = 'https://api.vasttrafik.se'
     baseurl = '/bin/rest.exe/v2'
     headers = {
