@@ -2,12 +2,13 @@
   "name": "infohub",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "./",
+  "homepage": "./",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "superagent": "^3.5.1",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

@@ -50,11 +50,11 @@ First you need to add a copy of `api_keys.example.py` and rename it to `api_keys
 
 The first time you run the application (and every time you add new dependencies) you need do run:
 ```
-./init.sh
+sh ./init.sh
 ```
 After that you only need to run:
 ```
-./debug.sh
+sh ./debug.sh
 ```
 
 ### Production

@@ -2,19 +2,16 @@ import json
 import requests
 from .api_keys import API
 
-def getDarkSkyJSON(location):
-    authKey = API['darkSky']['secret']
+
+def get_darksky_json(location):
+    auth_key = API['darkSky']['secret']
     host = 'https://api.darksky.net'
-    baseurl = '/forecast/'
+    base_url = '/forecast/'
     request = {
         'lang': 'sv',
         'units': 'si',
         'exclude': ['flags'],
     }
-    requestURL = host + baseurl + authKey + '/' + location
-    r = requests.get(requestURL, params=request)
-    r = json.loads(json.dumps(r.json()))
-    return modifyJSON(r)
-
-def modifyJSON(data):
-    return json.dumps(data)
+    request_url = f"{host}{base_url}{auth_key}/{location}"
+    response = requests.get(request_url, params=request)
+    return response

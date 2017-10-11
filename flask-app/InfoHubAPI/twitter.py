@@ -1,20 +1,19 @@
+from bs4 import BeautifulSoup
 import json
 import requests
-import bs4
 
-def getTwitterJSON(user):
+
+def get_twitter_json(user):
     data = {'images': []}
-    data['images'] = getPosts(user)
-    return modifyJSON(data)
-
-def modifyJSON(data):
+    data['images'] = get_posts(user)
     return json.dumps(data)
 
-def getPosts(user):
+
+def get_posts(user):
     posts = []
-    r = requests.get('https://twitter.com/' + user)
+    r = requests.get(f"https://twitter.com/{user}")
     r.raise_for_status()
-    noStarchSoup = bs4.BeautifulSoup(r.text, "html.parser")
+    noStarchSoup = BeautifulSoup(r.text, "html.parser")
     elems = noStarchSoup.select('div.AdaptiveMedia-photoContainer.js-adaptive-photo > img')
     for elem in elems:
         posts.append(elem.attrs['src'])

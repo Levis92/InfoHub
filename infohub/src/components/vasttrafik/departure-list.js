@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import '../../App.css';
-import DepartureItem from './departure-item';
+import React, { Component } from "react";
+import "../../App.css";
+import DepartureItem from "./departure-item";
 
 class DepartureList extends Component {
-
   addDepartureItem() {
-    let data = this.props.data;
+    let { data } = this.props;
     if (data) {
-      return data.map( (e, i) => <DepartureItem key={i} data={e} />);
+      return data.map((e, i) => <DepartureItem key={i} data={e} />);
     }
   }
 

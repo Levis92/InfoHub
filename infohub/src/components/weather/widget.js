@@ -1,27 +1,25 @@
-import React, { Component } from 'react';
-import '../../App.css';
-import CurrentWeather from './current-weather';
-import HourlyWeather from './hourly-weather';
-import { API, weatherLocation } from '../widget-settings';
-let request = require('superagent');
-
+import React, { Component } from "react";
+import "../../App.css";
+import CurrentWeather from "./current-weather";
+import HourlyWeather from "./hourly-weather";
+import { API, weatherLocation } from "../widget-settings";
+import request from "superagent";
 
 class Weather extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       data: {},
       currently: {},
       hourlyData: []
-    }
+    };
   }
 
   fetchData() {
     request
-      .get(API + '/darksky/' + weatherLocation.coordinates)
-      .accept('json')
-      .end( (err, res) => {
+      .get(API + "/darksky/" + weatherLocation.coordinates)
+      .accept("json")
+      .end((err, res) => {
         if (res) {
           res = JSON.parse(res.text);
           this.setState({
@@ -38,21 +36,28 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-     window.setInterval(function() {
-      this.fetchData();
-    }.bind(this), 300000);
+    window.setInterval(
+      function() {
+        this.fetchData();
+      }.bind(this),
+      300000
+    );
   }
 
   render() {
-    const DATA = this.state.data;
-    const CURRENTLY = this.state.currently;
-    const HOURLY = this.state.hourlyData;
+    const { data: DATA, currently: CURRENTLY, hourlyData: HOURLY } = this.state;
 
     return (
       <div className="widget weather">
-        <CurrentWeather location={weatherLocation} data={DATA} currently={CURRENTLY} />
+        <CurrentWeather
+          location={weatherLocation}
+          data={DATA}
+          currently={CURRENTLY}
+        />
         <HourlyWeather data={HOURLY} />
-        <a id="darksky-link" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+        <a id="darksky-link" href="https://darksky.net/poweredby/">
+          Powered by Dark Sky
+        </a>
       </div>
     );
   }
