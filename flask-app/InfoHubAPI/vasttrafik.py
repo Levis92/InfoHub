@@ -4,6 +4,7 @@ import requests
 import base64
 from operator import itemgetter
 from .api_keys import API
+from pprint import pprint
 
 
 def get_vasttrafik_json(id):
@@ -22,9 +23,8 @@ def get_vasttrafik_json(id):
         'format': 'json',
     }
     requestURL = f"{host}{baseurl}/departureBoard"
-    r = requests.get(requestURL, params=request, headers=headers)
-    r = r.json()
-    return modify_json(r)
+    response = requests.get(requestURL, params=request, headers=headers).json()
+    return modify_json(response)
 
 
 def get_access_token():
@@ -50,7 +50,7 @@ def modify_json(data):
     result = { 'Departure': [] }
     data['Departure'] = data['DepartureBoard']['Departure']
     del data['DepartureBoard']
-    data['Departure'] = [trim_departure_data(d) for d in data['Departure']]
+    data['Departure'] = [ trim_departure_data(d) for d in data['Departure'] ]
     key_list = get_departure_keys(data['Departure'])
     departures = {}
 
@@ -67,6 +67,7 @@ def modify_json(data):
 
     result['Departure'] = sorted(
         result['Departure'], key=itemgetter('rtDate', 'rtTime'))
+
     return json.dumps(result)
 
 
@@ -81,20 +82,16 @@ def trim_departure_data(departure):
     del departure['JourneyDetailRef']
     del departure['journeyid']
     del departure['stopid']
+    departure.setdefault('rtTime', departure['time'])
+    departure.setdefault('rtDate', departure['date'])
     del departure['time']
     del departure['date']
     return departure
 
 
 def add_next_departure(departure, next_departure):
-    try:
-        departure['nextRtTime'] = next_departure['rtTime']
-    except Exception as e:
-        departure['nextRtTime'] = next_departure['time']
-    try:
-        departure['nextRtDate'] = next_departure['rtDate']
-    except Exception as e:
-        departure['nextRtDate'] = next_departure['date']
+    departure['nextRtTime'] = next_departure['rtTime']
+    departure['nextRtDate'] = next_departure['rtDate']
     try:
         departure['nextAccessibility'] = next_departure['accessibility']
     except Exception as e:
