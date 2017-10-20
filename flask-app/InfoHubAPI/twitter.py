@@ -3,18 +3,16 @@ import json
 import requests
 
 
-def get_twitter_json(user):
+def get_twitter_data(user):
     data = {'images': []}
     data['images'] = get_posts(user)
-    return json.dumps(data)
+    return data
 
 
 def get_posts(user):
-    posts = []
     r = requests.get(f"https://twitter.com/{user}")
     r.raise_for_status()
-    noStarchSoup = BeautifulSoup(r.text, "html.parser")
-    elems = noStarchSoup.select('div.AdaptiveMedia-photoContainer.js-adaptive-photo > img')
-    for elem in elems:
-        posts.append(elem.attrs['src'])
+    parser = BeautifulSoup(r.text, "html.parser")
+    elems = parser.select('div.AdaptiveMedia-photoContainer.js-adaptive-photo > img')
+    posts = [ elem.attrs['src'] for elem in elems ]
     return posts

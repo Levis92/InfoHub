@@ -3,7 +3,7 @@ import requests
 from .api_keys import API
 
 
-def get_darksky_json(location):
+def get_darksky_data(location):
     auth_key = API['darkSky']['secret']
     host = 'https://api.darksky.net'
     base_url = '/forecast/'
@@ -13,5 +13,5 @@ def get_darksky_json(location):
         'exclude': ['flags'],
     }
     request_url = f"{host}{base_url}{auth_key}/{location}"
-    response = requests.get(request_url, params=request)
+    response = requests.get(request_url, params=request).json()
     return response

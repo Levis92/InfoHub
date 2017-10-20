@@ -1,25 +1,38 @@
-from flask import Flask, Response
-from .vasttrafik import get_vasttrafik_json
-from .darksky import get_darksky_json
-from .twitter import get_twitter_json
+from flask import Flask, jsonify
+from .vasttrafik import get_vasttrafik_data
+from .darksky import get_darksky_data
+from .twitter import get_twitter_data
+
 app = Flask(__name__)
 
 
-@app.route('/vasttrafik/<id>')
+@app.route('/vasttrafik/<int:id>')
 def vasttrafik(id=None):
-    resp = Response(get_vasttrafik_json(id))
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    return resp
+    response = get_vasttrafik_data(id)
 
-@app.route('/darksky/<location>')
+    status = 400\
+    	if 'error' in response\
+    	else 200
+
+    return jsonify(response), status,\
+    	{'Access-Control-Allow-Origin': '*'}
+
+
+@app.route('/darksky/<string:location>')
 # location format: [latitude],[longitude]
 def darksky(location=None):
-    resp = Response(get_darksky_json(location))
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    return resp
+    response = get_darksky_data(location)
+    status = response['code']\
+    	if 'error' in response\
+    	else 200
 
-@app.route('/twitter/<user>')
+    return jsonify(response), status,\
+    	{'Access-Control-Allow-Origin': '*'}
+
+
+@app.route('/twitter/<string:user>')
 def twitter(user=None):
-    resp = Response(get_twitter_json(user))
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    return resp
+    response = get_twitter_data(user)
+    return jsonify(response), 200,\
+    	{'Access-Control-Allow-Origin': '*'}
+
