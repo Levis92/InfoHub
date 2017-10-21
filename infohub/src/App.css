@@ -54,6 +54,10 @@ div[data-reactroot] {
       border-radius: 0.2em;
       margin-right: 0.5em;
       font-size: 1rem; }
+    .vasttrafik .widget-list-item i {
+      position: absolute; }
+    .vasttrafik .widget-list-item .departs span, .vasttrafik .widget-list-item .next-departure span {
+      text-indent: 1.4em; }
 
 .clock {
   min-width: 41vw;

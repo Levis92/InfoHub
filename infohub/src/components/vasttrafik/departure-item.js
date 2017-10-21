@@ -18,9 +18,6 @@ moment.updateLocale("sv", {
   }
 });
 
-function joinString(string1, string2) {
-  return string1 + " " + string2;
-}
 
 class DepartureItem extends Component {
   checkAccessibility(accessibility) {
@@ -35,7 +32,7 @@ class DepartureItem extends Component {
       default:
         return;
     }
-    return <i className={"accessibility-icon fa fa-" + icon} />;
+    return <i className={`accessibility-icon fa fa-${icon}`} />;
   }
 
   checkTime(time) {
@@ -44,7 +41,7 @@ class DepartureItem extends Component {
     if (now.diff(time, "seconds") >= 0) {
       result = "Nu";
     }
-    return result;
+    return <span>{result}</span>;
   }
 
   render() {
@@ -69,8 +66,8 @@ class DepartureItem extends Component {
       borderRadius: "0.2em"
     };
 
-    const now = joinString(rtDate, rtTime);
-    const next = joinString(nextRtDate, nextRtTime);
+    const now = [rtDate, rtTime].join(" ");
+    const next = [nextRtDate, nextRtTime].join(" ");
     const time = moment(now, "YYYY-MM-DD HH:mm");
     const nextTime = moment(next, "YYYY-MM-DD HH:mm");
 
