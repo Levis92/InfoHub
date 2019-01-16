@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "../../App.css";
 import CurrentWeather from "./current-weather";
 import HourlyWeather from "./hourly-weather";
 import { API, weatherLocation } from "../widget-settings";
 import request from "superagent";
+import './weather.sass';
 
 class Weather extends Component {
   constructor(props) {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../App.css";
 import Header from "./header";
 import DepartureList from "./departure-list";
 import { API } from "../widget-settings";

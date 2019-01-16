@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../App.css";
 import addIcon from "../../images/weather-icons/add-icons";
 
 class CurrentWeather extends Component {

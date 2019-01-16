@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../App.css";
 import DepartureItem from "./departure-item";
 
 class DepartureList extends Component {

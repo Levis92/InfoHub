@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../App.css";
+import './clock.sass';
 
 class Clock extends Component {
   setTime() {

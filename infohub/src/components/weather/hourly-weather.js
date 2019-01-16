@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../App.css";
 import HourlyWeatherItem from "./hourly-weather-item";
 
 class HourlyWeather extends Component {

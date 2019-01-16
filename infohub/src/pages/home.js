@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css';
-import Vasttrafik from '../components/vasttrafik/widget';
-import Clock from '../components/clock/widget';
-import Twitter from '../components/twitter/widget';
-import Weather from '../components/weather/widget';
+import Vasttrafik from '../components/vasttrafik';
+import Clock from '../components/clock';
+import Twitter from '../components/twitter';
+import Weather from '../components/weather';
 
 class Home extends Component {
   

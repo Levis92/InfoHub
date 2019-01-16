@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../../App.css";
 import { API, twitterUser } from "../widget-settings";
 import request from "superagent";
+import './twitter.sass';
 
 class Twitter extends Component {
   constructor(props) {

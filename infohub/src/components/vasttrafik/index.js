@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../../App.css';
 import BusStop from './bus-stop';
 import { stops } from '../widget-settings';
+import './vasttrafik.sass'
 
 
 class Vasttrafik extends Component {
