@@ -4,14 +4,11 @@ import request from "superagent";
 import './twitter.sass';
 
 class Twitter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       images: [],
       image: "",
       count: 0
-    };
-  }
+  };
 
   fetchData() {
     request
@@ -25,7 +22,7 @@ class Twitter extends Component {
             image: res.images[0],
             count: 1
           });
-        } else this.fetchData();
+        };
       });
   }
 

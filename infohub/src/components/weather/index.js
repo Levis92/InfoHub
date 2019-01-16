@@ -6,14 +6,11 @@ import request from "superagent";
 import './weather.sass';
 
 class Weather extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       data: {},
       currently: {},
       hourlyData: []
-    };
-  }
+  };
 
   fetchData() {
     request
@@ -27,7 +24,7 @@ class Weather extends Component {
             currently: res.currently,
             hourlyData: res.hourly.data
           });
-        } else this.fetchData();
+        };
       });
   }
 

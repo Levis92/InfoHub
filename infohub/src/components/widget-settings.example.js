@@ -40,15 +40,3 @@ export const weatherLocation =
 * The Twitter account you want to display pictures from.
 */
 export const twitterUser = 'EmrgencyKittens';
-
-/*
-* # Unsplash #
-* Attributes:
-*   accessKey: The dev access key
-*   secretKey: The dev secret key
-*/
-export const unsplashKey =
-  {
-    accessKey: '',
-    secretKey: ''
-  };
