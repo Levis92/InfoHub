@@ -9,7 +9,7 @@
     "node-sass": "^4.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "superagent": "^3.5.1",
+    "superagent": "^4.1.0",
     "unsplash-js": "^4.8.0"
   },
   "devDependencies": {
