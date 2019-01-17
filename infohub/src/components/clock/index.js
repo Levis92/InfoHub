@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './clock.sass';
+import "./clock.sass";
 
 class Clock extends Component {
   setTime() {
@@ -72,13 +72,10 @@ class Clock extends Component {
   }
 
   componentDidMount() {
-    window.setInterval(
-      function() {
-        this.setTime();
-        this.setDate();
-      }.bind(this),
-      1000
-    );
+    setInterval(() => {
+      this.setTime();
+      this.setDate();
+    }, 1000);
   }
 
   render() {
@@ -97,9 +94,7 @@ class Clock extends Component {
           <div className="time">
             {HOURS}:{MINUTES}:{SECONDS}
           </div>
-          <div className="date">
-            {DATE + " " + MONTH + " " + YEAR}
-          </div>
+          <div className="date">{DATE + " " + MONTH + " " + YEAR}</div>
         </div>
       </div>
     );

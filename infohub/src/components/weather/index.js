@@ -1,31 +1,32 @@
 import React, { Component } from "react";
 import CurrentWeather from "./current-weather";
 import HourlyWeather from "./hourly-weather";
-import { API, weatherLocation } from "../widget-settings";
-import request from "superagent";
-import './weather.sass';
+import { weatherLocation } from "../widget-settings";
+import "./weather.sass";
 
 class Weather extends Component {
   state = {
-      data: {},
-      currently: {},
-      hourlyData: []
+    data: {},
+    currently: {},
+    hourlyData: []
   };
 
   fetchData() {
-    request
-      .get(API + "/darksky/" + weatherLocation.coordinates)
-      .accept("json")
-      .end((err, res) => {
-        if (res) {
-          res = JSON.parse(res.text);
-          this.setState({
-            data: res,
-            currently: res.currently,
-            hourlyData: res.hourly.data
-          });
-        };
-      });
+    fetch(`/darksky/${weatherLocation.coordinates}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(res => {
+        this.setState({
+          data: res,
+          currently: res.currently,
+          hourlyData: res.hourly.data
+        });
+      })
+      .catch(error => console.error(error));
   }
 
   componentWillMount() {

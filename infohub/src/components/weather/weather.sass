@@ -2,11 +2,23 @@
 
 .weather
   width: 47vw
-  height: 35vh
-  background-color: rgba(42, 81, 142, 0.8)
-  color: $widget-text-color
-  border: 1px solid lightgrey
+  min-width: 320px
+  height: 40vh
+  color: #eee
   padding: 15px 20px
+  box-sizing: border-box
+  overflow: hidden
+  position: relative
+  &::after
+    content: ""
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%)
+    opacity: 0.9
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    position: absolute
+    z-index: -1
   .current-weather
     height: 58%
     width: 100%
@@ -16,10 +28,11 @@
       flex: 3
       h2
         margin: 0
-        font-size: 0.9rem
+        font-size: 1.2rem
       h6
-        color: rgb(150, 150, 150)
+        color: rgb(220, 220, 220)
         margin: 3px 0
+        font-size: 0.8rem
       img
         height: 70%
     .sidebar

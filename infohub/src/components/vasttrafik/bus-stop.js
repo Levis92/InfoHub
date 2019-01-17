@@ -1,27 +1,21 @@
 import React, { Component } from "react";
 import Header from "./header";
 import DepartureList from "./departure-list";
-import { API } from "../widget-settings";
-import request from "superagent";
 
 class BusStop extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      result: []
-    };
-  }
+  state = {
+    result: []
+  };
 
   fetchData() {
     const { id } = this.props.data;
-    request.get(API + "/vasttrafik/" + id).accept("json").end((err, res) => {
-      if (res) {
-        res = JSON.parse(res.text);
+    fetch(`/vasttrafik/${id}`)
+      .then(response => response.json())
+      .then(json =>
         this.setState({
-          result: res.Departure
-        });
-      }
-    });
+          result: json.Departure
+        })
+      );
   }
 
   componentWillMount() {
@@ -29,12 +23,9 @@ class BusStop extends Component {
   }
 
   componentDidMount() {
-    window.setInterval(
-      function() {
-        this.fetchData();
-      }.bind(this),
-      5000
-    );
+    window.setInterval(() => {
+      this.fetchData();
+    }, 5000);
   }
 
   render() {

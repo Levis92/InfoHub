@@ -1,10 +1,4 @@
 /*
-* # API #
-* The domain you're getting your data from.
-*/
-export const API = 'http://localhost:5000';
-
-/*
 * # Västtrafik #
 * List of bus-, tram- or trainstops you want to include in this widget.
 * Attributes:
