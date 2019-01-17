@@ -3,9 +3,13 @@ FROM python:3-slim-stretch
 WORKDIR /app
 
 COPY . .
-RUN pip install --no-cache-dir .
+
+RUN pip install --user --upgrade .
 
 ENV FLASK_DEBUG=1
 
-CMD [ "./debug.sh", "--no-venv" ]
+ENV FLASK_APP=InfoHubAPI.__init__
+
 EXPOSE 5000
+
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]

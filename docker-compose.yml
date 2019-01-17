@@ -12,6 +12,8 @@ services:
      - "3000:3000"
     volumes:
      - .:/infohub
+    external_links:
+     - backend
     depends_on:
      - backend
   redis:
