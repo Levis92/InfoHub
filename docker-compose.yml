@@ -1,0 +1,18 @@
+version: '3'
+services:
+  backend:
+    build: ./flask-app
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/flask-app
+  frontend:
+    build: ./infohub
+    ports:
+     - "3000:3000"
+    volumes:
+     - .:/infohub
+    depends_on:
+     - backend
+  redis:
+    image: "redis:alpine"
