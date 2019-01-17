@@ -13,5 +13,5 @@ def get_darksky_data(location):
         'exclude': ['flags'],
     }
     request_url = f"{host}{base_url}{auth_key}/{location}"
-    response = requests.get(request_url, params=request).json()
-    return response
+    response = requests.get(request_url, params=request)
+    return response.json(), response.status_code
