@@ -5,14 +5,14 @@
   "homepage": "./",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "moment": "^2.18.1",
-    "node-sass": "^4.11.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "moment": "^2.23.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "unsplash-js": "^4.8.0"
   },
   "devDependencies": {
-    "react-scripts": "2.1.3"
+    "react-scripts": "2.1.3",
+    "node-sass": "^4.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
