@@ -29,7 +29,8 @@ const DepartureItem = ({ data }) => {
           return;
       }
     };
-    return <i className={`accessibility-icon fa fa-${getIcon()}`} />;
+    const icon = getIcon();
+    return icon && <i className={`accessibility-icon fa fa-${icon}`} />;
   };
 
   const checkTime = time => {
