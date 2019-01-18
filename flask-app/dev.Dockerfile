@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+ENV TZ=Europe/Stockholm
+
 RUN pip install --user --upgrade .
 
 ENV FLASK_DEBUG=1
