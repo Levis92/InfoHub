@@ -2,7 +2,7 @@ import requests
 import json
 from .api_keys import API
 
-def get_wallpaper():
+def get_unsplash_wallpaper():
     host = 'https://api.unsplash.com'
     base_url = '/photos/random'
     params = {
