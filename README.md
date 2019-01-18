@@ -1,3 +1,5 @@
+![Screenshot](screenshot.png)
+
 # InfoHub
 This project is made for my personal use, but you're welcome to use any part of the code. Some widgets may need [API keys](https://en.wikipedia.org/wiki/Application_programming_interface_key) and it's up to you to acquire those yourself.
 
@@ -19,11 +21,11 @@ It fetches background wallpapers from Unsplash API.
 The application can, after fixing the configuration files, be composed with [Docker](https://www.docker.com).
 
 To build it run:
-```
+```shell
 $ docker-compose up --build
 ```
 To just compose it, after being built, run:
-```
+```shell
 $ docker-compose up
 ```
 
@@ -34,11 +36,11 @@ The frontend is built with the Javascript library [React](https://facebook.githu
 First you need to add a copy of `widget-settings.example.js` and rename it to `widget-settings.js`. The file can be found in `infohub/src/components/`. Add your own settings in the file.
 
 The first time you run the application (and every time you add new dependencies) you need do run:
-```
+```shell
 $ yarn
 ```
 After that you only need to run:
-```
+```shell
 $ yarn start
 ```
 
@@ -47,7 +49,7 @@ Sass files are automatically compiled during runtime or when building the applic
 
 ### Production
 To build the React application you run:
-```
+```shell
 $ yarn build
 ```
 
@@ -58,11 +60,11 @@ The backend runs on the Python framework [Flask](http://flask.pocoo.org) and is 
 First you need to add a copy of `api_keys.example.py` and rename it to `api_keys.py`. The file can be found in `flask-app/InfoHubAPI/`. Add your API keys in this file.
 
 The first time you run the application (and every time you add new dependencies) you need do run:
-```
+```shell
 $ sh ./init.sh
 ```
 After that you only need to run:
-```
+```shell
 $ sh ./debug.sh
 ```
 
