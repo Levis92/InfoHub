@@ -8,7 +8,7 @@ This project is made for my personal use, but you're welcome to use any part of 
 
 InfoHub is an application to display widgets on a screen. That's it. No accounts or special features for touchscreen monitors. Just for displaying information.
 
-It fetches background wallpapers from Unsplash API.
+It fetches background wallpapers from [Unsplash API](https://unsplash.com/developers).
 
 ### Current widgets
 
