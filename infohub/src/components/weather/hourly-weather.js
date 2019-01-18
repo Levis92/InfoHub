@@ -1,25 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import HourlyWeatherItem from "./hourly-weather-item";
 
-class HourlyWeather extends Component {
-  addItems() {
-    const { data } = this.props;
+const HourlyWeather = ({ data }) => {
+  const addItems = () => {
     if (data) {
-      let dataList = [];
-      for (var i = 0; i <= 10 && i < data.length; i++) {
-        dataList[i] = data[i];
-      }
-      return dataList.map((e, i) => <HourlyWeatherItem key={i} data={e} />);
+      return data
+        .slice(0, 12)
+        .map((e, i) => (
+          <HourlyWeatherItem
+            key={i}
+            time={e.time}
+            icon={e.icon}
+            temperature={e.temperature}
+          />
+        ));
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className="hourly-weather">
-        {this.addItems()}
-      </div>
-    );
-  }
-}
+  return <div className="hourly-weather">{addItems()}</div>;
+};
 
 export default HourlyWeather;

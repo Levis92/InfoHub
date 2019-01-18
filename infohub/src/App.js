@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
-import './App.sass';
-import Home from './pages/home.js';
+import React from "react";
+import "./App.sass";
+import Home from "./pages/home.js";
 import Vasttrafik from "components/vasttrafik";
 import Clock from "components/clock";
 import Twitter from "components/twitter";
 import Weather from "components/weather";
 
-class App extends Component {
-  render() {
-    return (
-      <Home>
-        <Twitter />
-        <Vasttrafik />
-        <Clock />
-        <Weather />
-      </Home>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Home>
+      <Twitter />
+      <Vasttrafik />
+      <Clock />
+      <Weather />
+    </Home>
+  );
+};
 
 export default App;

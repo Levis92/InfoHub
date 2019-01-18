@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
-import BusStop from './bus-stop';
-import { stops } from '../widget-settings';
-import './vasttrafik.sass'
+import React from "react";
+import BusStop from "./bus-stop";
+import { stops } from "../widget-settings";
+import "./vasttrafik.sass";
 
+const Vasttrafik = () => {
+  const addBusStops = () => {
+    return stops.map((e, i) => <BusStop key={i} data={e} />);
+  };
 
-class Vasttrafik extends Component {
-  addBusStops() {
-    return stops.map( (e, i) => <BusStop key={i} data={e} />);
-  }
-
-  render() {
-    return (
-      <div className="widget vasttrafik">
-        {this.addBusStops()}
-      </div>
-    );
-  }
-}
+  return <div className="widget vasttrafik">{addBusStops()}</div>;
+};
 
 export default Vasttrafik;
