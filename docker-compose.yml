@@ -1,19 +1,25 @@
 version: '3'
 services:
   backend:
-    build: ./flask-app
+    build:
+     context: ./flask-app
+     dockerfile: dev.Dockerfile
+    image: infohub_backend:dev
     ports:
      - "5000:5000"
     volumes:
-     - .:/flask-app
+     - ./flask-app:/InfoHubAPI
   frontend:
-    build: ./infohub
+    build:
+     context: ./infohub
+     dockerfile: dev.Dockerfile
+    image: infohub_frontend:dev
     ports:
      - "3000:3000"
     volumes:
-     - .:/infohub
-    external_links:
-     - backend
+     - ./infohub:/usr/src/app
+    environment:
+     - NODE_ENV=development
     depends_on:
      - backend
   redis:
