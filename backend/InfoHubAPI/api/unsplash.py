@@ -12,4 +12,4 @@ def get_unsplash_wallpaper():
     }
     r = requests.get(f"{host}{base_url}", params=params)
     r.raise_for_status()
-    return r.json()
+    return r.json(), r.status_code

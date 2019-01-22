@@ -4,7 +4,8 @@ from .api import (
     get_darksky_data,
     get_twitter_data,
     get_unsplash_wallpaper,
-    get_vma_messages
+    get_vma_messages,
+    get_news_articles
 )
 
 
@@ -14,7 +15,6 @@ app = Flask(__name__)
 @app.route('/vasttrafik/<int:id>')
 def vasttrafik(id=None):
     response = get_vasttrafik_data(id)
-
     status = 400\
     	if 'error' in response\
     	else 200
@@ -26,7 +26,6 @@ def vasttrafik(id=None):
 # location format: [latitude],[longitude]
 def darksky(location=None):
     response, status = get_darksky_data(location)
-
     return jsonify(response), status
 
 
@@ -38,9 +37,17 @@ def twitter(user=None):
 
 @app.route('/unsplash/wallpaper')
 def unsplash():
-    return jsonify(get_unsplash_wallpaper())
+    response, status = get_unsplash_wallpaper()
+    return jsonify(response), status
 
 
 @app.route('/vma')
 def vma():
-    return jsonify(get_vma_messages())
+    response, status = get_vma_messages()
+    return jsonify(response), status
+
+
+@app.route('/news')
+def news_api():
+    response, status = get_news_articles()
+    return jsonify(response), status

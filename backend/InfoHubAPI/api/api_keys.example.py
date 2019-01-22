@@ -12,5 +12,9 @@ API = {
     'unsplash': {
         'key': '',
         'secret': ''
+    },
+    # https://newsapi.org/docs/get-started
+    'newsAPI': {
+        'key': ''
     }
 }
