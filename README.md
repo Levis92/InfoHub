@@ -107,3 +107,4 @@ There are currently no specified script for production mode.
 - [Västtrafik Developer Portal](https://developer.vasttrafik.se/portal/#/)
 - [Dark Sky API](https://darksky.net/dev/)
 - [Unsplash](https://unsplash.com/developers)
+- [News API](https://newsapi.org/docs)
