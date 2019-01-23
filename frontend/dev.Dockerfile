@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install 
+RUN yarn install
 COPY ./ ./
 
-CMD yarn start
+CMD npm rebuild node-sass && yarn start
