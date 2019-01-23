@@ -68,6 +68,7 @@ class Home extends Component {
         {images.map((image, i) => (
           <BackgroundImage key={i} show={index === i} image={image.urls.full} />
         ))}
+        {this.props.children}
         <PromoLinks />
       </div>
     );
