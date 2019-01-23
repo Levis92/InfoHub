@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import CurrentWeather from "./current-weather";
-import HourlyWeather from "./hourly-weather";
-import { weatherLocation } from "../widget-settings";
-import "./weather.sass";
+import React, { Component } from 'react';
+import CurrentWeather from './current-weather';
+import HourlyWeather from './hourly-weather';
+import { weatherLocation } from '../widget-settings';
+import './weather.sass';
 
 class Weather extends Component {
   state = {
@@ -14,8 +14,8 @@ class Weather extends Component {
   fetchData() {
     fetch(`/darksky/${weatherLocation.coordinates}`, {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       }
     })
       .then(response => response.json())
@@ -50,9 +50,6 @@ class Weather extends Component {
           currently={CURRENTLY}
         />
         <HourlyWeather data={HOURLY} />
-        <a id="darksky-link" href="https://darksky.net/poweredby/">
-          Powered by Dark Sky
-        </a>
       </div>
     );
   }
