@@ -1,21 +1,22 @@
-import React, { Component } from "react";
-import Header from "./header";
-import DepartureList from "./departure-list";
+import React, { Component } from 'react';
+import Header from './header';
+import DepartureList from './departure-list';
 
 class BusStop extends Component {
   state = {
-    result: []
+    departure: []
   };
 
   fetchData() {
     const { id } = this.props.data;
     fetch(`/vasttrafik/${id}`)
       .then(response => response.json())
-      .then(json =>
+      .then(({ Departure }) =>
         this.setState({
-          result: json.Departure
+          departure: Departure
         })
-      );
+      )
+      .catch(error => console.error(error));
   }
 
   componentWillMount() {
@@ -30,12 +31,12 @@ class BusStop extends Component {
 
   render() {
     const { name } = this.props.data;
-    const { result: RESULT } = this.state;
+    const { departure } = this.state;
 
     return (
       <div>
         <Header busStop={name} />
-        <DepartureList data={RESULT} />
+        <DepartureList data={departure} />
       </div>
     );
   }
