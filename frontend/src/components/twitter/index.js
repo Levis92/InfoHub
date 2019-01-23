@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { twitterUser } from "../widget-settings";
-import "./twitter.sass";
+import React, { Component } from 'react';
+import { twitterUser } from '../widget-settings';
+import './twitter.sass';
 
 class Twitter extends Component {
   state = {
     images: [],
-    image: "",
+    image: '',
     count: 0
   };
 
   fetchData() {
     fetch(`/twitter/${twitterUser}`)
       .then(response => response.json())
-      .then(json =>
+      .then(({ images }) =>
         this.setState({
-          images: json.images,
-          image: json.images[0],
+          images,
+          image: images[0],
           count: 0
         })
       );
@@ -27,14 +27,18 @@ class Twitter extends Component {
 
   componentDidMount() {
     window.setInterval(() => {
-      let { count, images } = this.state;
-      this.setState({
-        image: images[count],
-        count: ++count % images.length
-      });
-      if (count === 0) {
-        this.fetchData();
-      }
+      const { count, images } = this.state;
+      this.setState(
+        ({ count, images }) => ({
+          image: images[count],
+          count: ++count % images.length
+        }),
+        () => {
+          if (count === images.length - 1) {
+            this.fetchData();
+          }
+        }
+      );
     }, 10000);
   }
 
