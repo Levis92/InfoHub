@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./clock.sass";
+import React, { Component } from 'react';
+import './clock.sass';
 
 class Clock extends Component {
   setTime() {
@@ -15,22 +15,22 @@ class Clock extends Component {
     }
 
     // add leading zero, first convert hours to string
-    hours = hours + "";
+    hours = hours + '';
     if (hours.length === 1) {
-      hours = "0" + hours;
+      hours = '0' + hours;
     }
 
     // minutes are the same on every time zone
     var minutes = currentdate.getMinutes();
 
     // add leading zero, first convert hours to string
-    minutes = minutes + "";
+    minutes = minutes + '';
     if (minutes.length === 1) {
-      minutes = "0" + minutes;
+      minutes = '0' + minutes;
     }
 
     var seconds = currentdate.getSeconds();
-    if (seconds < 10) seconds = "0" + seconds;
+    if (seconds < 10) seconds = '0' + seconds;
     this.setState({
       hours: hours,
       minutes: minutes,
@@ -44,18 +44,18 @@ class Clock extends Component {
     var month = currentdate.getMonth();
     var year = currentdate.getFullYear();
     var months = [
-      "Januari",
-      "Februari",
-      "Mars",
-      "April",
-      "Maj",
-      "Juni",
-      "Juli",
-      "Augusti",
-      "September",
-      "Oktober",
-      "November",
-      "December"
+      'Januari',
+      'Februari',
+      'Mars',
+      'April',
+      'Maj',
+      'Juni',
+      'Juli',
+      'Augusti',
+      'September',
+      'Oktober',
+      'November',
+      'December'
     ];
     month = months[month];
 
@@ -90,12 +90,14 @@ class Clock extends Component {
 
     return (
       <div className="widget clock">
-        <div>
+        {this.props.top}
+        <div className="time-date">
           <div className="time">
             {HOURS}:{MINUTES}:{SECONDS}
           </div>
-          <div className="date">{DATE + " " + MONTH + " " + YEAR}</div>
+          <div className="date">{DATE + ' ' + MONTH + ' ' + YEAR}</div>
         </div>
+        {this.props.bottom}
       </div>
     );
   }
