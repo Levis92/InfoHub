@@ -18,7 +18,7 @@ It fetches background wallpapers from [Unsplash API](https://unsplash.com/develo
 
 - **Twitter images.** Displays the latest images from specified Twitter user.
 
-- **Weather (Dark Sky API).** Displays current and hourly weather data for chosen location. Needs API key. You can get it from [darksky.net/dev](https://darksky.net/dev/).
+- **Weather (Tomorrow API).** Displays current and hourly weather data for chosen location. Needs API key. You can get it from [tomorrow.io/weather-api](https://www.tomorrow.io/weather-api/).
 
 ## Docker
 
@@ -36,24 +36,26 @@ To just compose it, after being built, run:
 $ docker-compose up
 ```
 
-## React
+## Next.js
 
-The frontend is built with the Javascript library [React](https://facebook.github.io/react/) and is styled with the CSS extension language [Sass](http://sass-lang.com).
+The frontend is built with the Javascript framework [Next.js](https://nextjs.org/) based on [React](https://facebook.github.io/react/) and is styled with [CSS Modules](https://github.com/css-modules/css-modules) and the CSS extension language [Sass](http://sass-lang.com).
 
 ### Development
 
-First you need to add a copy of `widget-settings.example.js` and rename it to `widget-settings.js`. The file can be found in `infohub/src/components/`. Add your own settings in the file.
+First you need to add a copy of `widget-settings.example.ts` and rename it to `widget-settings.ts`. The file can be found in `infohub/`. Add your own settings in the file.
+
+Then you also need to make a copy of the `.env` file in `infohub/` and rename it `.env.local`. Add your API keys in it.
 
 The first time you run the application (and every time you add new dependencies) you need do run:
 
 ```shell
-$ yarn
+$ yarn install
 ```
 
 After that you only need to run:
 
 ```shell
-$ yarn start
+$ yarn dev
 ```
 
 #### Sass
@@ -62,49 +64,25 @@ Sass files are automatically compiled during runtime or when building the applic
 
 ### Production
 
-To build the React application you run:
+To build and run the Next.js application you run:
 
 ```shell
-$ yarn build
+$ yarn build && yarn start
 ```
-
-## Flask
-
-The backend runs on the Python framework [Flask](http://flask.pocoo.org) and is used as an [API](https://en.wikipedia.org/wiki/Application_programming_interface) to request data and structure it in a format more convenient for the frontend application.
-
-### Development
-
-First you need to add a copy of `api_keys.example.py` and rename it to `api_keys.py`. The file can be found in `flask-app/InfoHubAPI/`. Add your API keys in this file.
-
-The first time you run the application (and every time you add new dependencies) you need do run:
-
-```shell
-$ sh ./init.sh
-```
-
-After that you only need to run:
-
-```shell
-$ sh ./debug.sh
-```
-
-### Production
-
-There are currently no specified script for production mode.
 
 ## Dependencies
 
+- [Next.js](https://nextjs.org/)
 - [React](https://facebook.github.io/react/)
-- [Flask](http://flask.pocoo.org)
 - [Yarn](https://yarnpkg.com/)
 - [Sass](http://sass-lang.com)
-- [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/)
-- [Moment.js](http://momentjs.com)
-- [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/)
+- [React Query](https://react-query.tanstack.com/)
+- [Day.js](https://day.js.org/en/)
+- [Puppeteer](https://pptr.dev/)
 
 ## Resources
 
 - [Västtrafik Developer Portal](https://developer.vasttrafik.se/portal/#/)
-- [Dark Sky API](https://darksky.net/dev/)
+- [Tomorrow API](https://www.tomorrow.io/weather-api/)
 - [Unsplash](https://unsplash.com/developers)
 - [News API](https://newsapi.org/docs)

@@ -1,0 +1,27 @@
+@import "../../styles/colors";
+
+.clock {
+  width: 41vw;
+  height: 40vh;
+  min-width: 540px;
+  color: $widget-text-color;
+  text-shadow: 1px 1px 1px #555;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  .timeDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 140px;
+    .time {
+      font-size: 8rem;
+    }
+    .date {
+      font-size: 3.5rem;
+    }
+  }
+}

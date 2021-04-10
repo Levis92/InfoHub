@@ -1,26 +1,13 @@
 version: '3'
 services:
-  backend:
+  infohub:
     build:
-     context: ./backend
-     dockerfile: dev.Dockerfile
-    image: infohub_backend:dev
-    ports:
-     - "5000:5000"
-    volumes:
-     - ./backend:/usr/src/app
-  frontend:
-    build:
-     context: ./frontend
-     dockerfile: dev.Dockerfile
-    image: infohub_frontend:dev
+     context: ./infohub
+     dockerfile: Dockerfile
+    image: infohub:prod
     ports:
      - "3000:3000"
     volumes:
-     - ./frontend:/usr/src/app
-    environment:
-     - NODE_ENV=development
-    depends_on:
-     - backend
+     - ./infohub:/usr/src/app
   redis:
     image: "redis:alpine"

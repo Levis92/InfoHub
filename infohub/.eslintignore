@@ -1,0 +1,10 @@
+
+.next/**/*
+.vscode/**/*
+node_modules/**/*
+out/**/*
+public/**/*
+test/**/*
+**/*.config.js
+*.jest
+/*.js
