@@ -1,0 +1,10 @@
+.widget {
+  border-radius: 0.3em;
+  padding: 15px;
+  margin: 1vh 1vw;
+  box-shadow: 0 10px 6px -6px rgba(150, 150, 150, 0.43);
+
+  &[data-flat='true'] {
+    box-shadow: none;
+  }
+}

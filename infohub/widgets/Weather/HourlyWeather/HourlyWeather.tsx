@@ -1,6 +1,6 @@
 import { Interval } from 'interfaces';
 import { HourlyWeatherItem } from './HourlyWeatherItem';
-import styles from '../Weather.module.scss';
+import styles from './HourlyWeather.module.scss';
 
 export interface HourlyWeatherProps {
   intervals?: Interval[];

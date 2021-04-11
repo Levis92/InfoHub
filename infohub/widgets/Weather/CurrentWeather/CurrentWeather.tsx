@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
-import { getWeatherIconPath } from 'components/Weather/getIcon';
-import styles from '../Weather.module.scss';
+import { getWeatherIconPath } from 'widgets/Weather/getIcon';
 import { TimeLine } from 'interfaces';
 import { WeatherLocation } from 'widget-settings';
-import { useDayCycle } from 'components/Weather/DayCycleProvider';
+import { useDayCycle } from 'widgets/Weather/DayCycleProvider';
+import styles from './CurrentWeather.module.scss';
 
 export interface CurrentWeatherProps {
   location: WeatherLocation;

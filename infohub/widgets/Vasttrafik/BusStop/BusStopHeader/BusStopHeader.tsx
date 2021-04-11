@@ -1,4 +1,4 @@
-import styles from '../../Vasttrafik.module.scss';
+import styles from '../BusStop.module.scss';
 
 export interface HeaderProps {
   busStop: string;

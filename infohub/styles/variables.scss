@@ -1,0 +1,6 @@
+:root {
+  $spacing-base: 0.5rem;
+  @for $modifier from 1 through 20 {
+    --spacing-#{$modifier}: #{$modifier * $spacing-base};
+  }
+}

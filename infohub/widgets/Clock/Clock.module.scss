@@ -1,10 +1,8 @@
-@import "../../styles/colors";
-
 .clock {
   width: 41vw;
   height: 40vh;
   min-width: 540px;
-  color: $widget-text-color;
+  color: rgb(230, 230, 230);
   text-shadow: 1px 1px 1px #555;
   box-shadow: none;
   display: flex;

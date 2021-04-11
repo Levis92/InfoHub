@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { Accessibility, Departure } from 'interfaces';
-import styles from '../../Vasttrafik.module.scss';
+import styles from '../BusStop.module.scss';
 
 export interface DepartureItemProps {
   departure: Departure;

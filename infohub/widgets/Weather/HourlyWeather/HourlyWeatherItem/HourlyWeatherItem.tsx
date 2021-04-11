@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
-import { getWeatherIconPath } from 'components/Weather/getIcon';
-import styles from '../../Weather.module.scss';
-import { useDayCycle } from 'components/Weather/DayCycleProvider';
+import { getWeatherIconPath } from 'widgets/Weather/getIcon';
+import styles from './HourlyWeatherItem.module.scss';
+import { useDayCycle } from 'widgets/Weather/DayCycleProvider';
 
 export interface HourlyWeatherItemProps {
   time: string;

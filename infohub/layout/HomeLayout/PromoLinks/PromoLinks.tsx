@@ -1,3 +1,5 @@
+import styles from './PromoLinks.module.scss';
+
 export function PromoLinks() {
   const links = [
     {
@@ -6,7 +8,7 @@ export function PromoLinks() {
     },
   ];
   return (
-    <div className="promo-links">
+    <div className={styles.promoLinks}>
       {links.map(({ name, href }) => (
         <a key={href} href={href}>
           {name}
@@ -14,4 +16,4 @@ export function PromoLinks() {
       ))}
     </div>
   );
-};
+}

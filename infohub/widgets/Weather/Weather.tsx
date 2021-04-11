@@ -3,6 +3,7 @@ import { HourlyWeather } from './HourlyWeather';
 import { weatherLocation } from 'widget-settings';
 import { useWeatherData } from './useWeatherData';
 import { DayCycleProvider } from './DayCycleProvider';
+import { WidgetContainer } from 'common';
 import styles from './Weather.module.scss';
 
 export function Weather() {
@@ -19,7 +20,7 @@ export function Weather() {
   );
 
   return (
-    <div className={`widget ${styles.weather}`}>
+    <WidgetContainer className={styles.weather}>
       <DayCycleProvider daylyTimelime={daylyTimeline}>
         <CurrentWeather
           location={weatherLocation}
@@ -27,7 +28,7 @@ export function Weather() {
         />
         <HourlyWeather intervals={hourlyTimeline?.intervals} />
       </DayCycleProvider>
-    </div>
+    </WidgetContainer>
   );
 }
 

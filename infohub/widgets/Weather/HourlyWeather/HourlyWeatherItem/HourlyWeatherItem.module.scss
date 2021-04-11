@@ -1,0 +1,14 @@
+.hourlyWeatherItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  img {
+    width: 70%;
+  }
+  h5 {
+    margin: 0.7em 0;
+    text-align: center;
+  }
+}
