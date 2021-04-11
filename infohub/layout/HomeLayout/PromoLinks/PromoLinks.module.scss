@@ -1,0 +1,20 @@
+.promoLinks {
+  color: rgb(155, 194, 212);
+  font-size: 12px;
+  position: fixed;
+  bottom: 1px;
+  left: 1px;
+  &:before {
+    content: 'Powered by';
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:before {
+      content: ' ';
+    }
+    &:not(:last-child):after {
+      content: ',';
+    }
+  }
+}

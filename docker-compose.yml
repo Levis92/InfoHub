@@ -1,0 +1,13 @@
+version: '3'
+services:
+  infohub:
+    build:
+     context: ./infohub
+     dockerfile: Dockerfile
+    image: infohub:prod
+    ports:
+     - "3000:3000"
+    volumes:
+     - ./infohub:/usr/src/app
+  redis:
+    image: "redis:alpine"

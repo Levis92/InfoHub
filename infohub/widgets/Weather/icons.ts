@@ -1,0 +1,15 @@
+export default {
+  clearDay: 'clear-day.png',
+  clearNight: 'clear-night.png',
+  cloudy: 'cloudy.png',
+  fog: 'fog.png',
+  hail: 'hail.png',
+  partlyCloudyDay: 'partly-cloudy-day.png',
+  partlyCloudyNight: 'partly-cloudy-night.png',
+  rain: 'rain.png',
+  sleet: 'sleet.png',
+  snow: 'snow.png',
+  thunderstorm: 'thunderstorm.png',
+  tornado: 'tornado.png',
+  wind: 'wind.png',
+} as const;
